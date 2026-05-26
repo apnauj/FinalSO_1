@@ -24,10 +24,10 @@ WORKDIR ${LAMBDA_TASK_ROOT}
 # Copiar las dependencias instaladas desde la fase de compilación
 COPY --from=builder ${LAMBDA_TASK_ROOT} ${LAMBDA_TASK_ROOT}
 
-# Copiar el código de la aplicación (asumiendo que tu archivo se llama main.py)
-# Cambia 'main.py' por el nombre real de tu archivo si es diferente
-COPY main.py .
+# Copiar el código de la aplicación (asumiendo que tu archivo se llama app.py)
+# Cambia 'app.py' por el nombre real de tu archivo si es diferente
+COPY app.py .
 
 # Indicar el "Handler" de la Lambda. 
 # Estructura: [nombre_archivo_python].[nombre_variable_mangum]
-CMD [ "main.mangum_handler" ]
+CMD [ "app.mangum_handler" ]
