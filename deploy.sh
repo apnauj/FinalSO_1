@@ -19,10 +19,9 @@ echo "========================================="
 echo "🚀 Iniciando proceso de despliegue a ECR"
 echo "========================================="
 
-# i. Construir la imagen de Docker
+# i. Construir la imagen de Docker forzando la plataforma compatible con Lambda
 echo "📦 1. Construyendo la imagen de Docker..."
-# --pull asegura que descargue la versión más reciente de la imagen base de AWS
-docker build --pull -t "${REPO_NAME}:${IMAGE_TAG}" .
+docker build --pull --platform linux/amd64 -t "${REPO_NAME}:${IMAGE_TAG}" .
 
 # ii. Asignar la etiqueta (tag) para ECR
 echo "🏷️  2. Asignando etiqueta de ECR a la imagen..."
